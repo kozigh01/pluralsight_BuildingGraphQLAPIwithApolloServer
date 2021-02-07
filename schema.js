@@ -17,8 +17,11 @@ const typeDefs = gql`
     speakers: [Speaker],
     speakerById(id: ID!): Speaker
   }
-  type Session {
-    id: ID!,
+  type Mutation {
+    toggleFavoriteSession(id: ID!): Session
+    addNewSession(session: SessionInput): Session
+  }
+  input SessionInput {
     title: String!,
     description: String,
     startsAt: String,
@@ -26,8 +29,21 @@ const typeDefs = gql`
     room: String,
     day: String,
     format: String,
+    level: String
+    favorite: Boolean
+  }
+  type Session {
+    id: ID!,
+    title: String!,
+    description: String,
+    startsAt: String,
+    endsAt: String,
+    room: Room,
+    day: String,
+    format: String,
     track: String @deprecated(reason: "need to stop using this..."),
     level: String
+    favorite: Boolean
     speakers: [Speaker]
   }
   type Speaker {
@@ -35,6 +51,23 @@ const typeDefs = gql`
     bio: String
     name: String
     sessions: [Session]
+  }
+  enum Room {
+    Europa
+    Sol
+    Saturn
+    Jupiter
+    Earth
+    Mercury
+    Mars
+    Pluto
+    Uranus
+    Venus
+    Neptune
+    Ganymede
+    Io
+    Titan
+    Callisto
   }
 `;
 

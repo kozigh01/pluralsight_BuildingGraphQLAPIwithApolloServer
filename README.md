@@ -30,6 +30,10 @@ query {
     room
     track
     level
+    speakers {
+      id
+      name
+    }
   }
 } 
 

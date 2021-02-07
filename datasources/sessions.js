@@ -22,6 +22,18 @@ class SessionAPI extends DataSource {
   getSessionsFiltered(args) {
     return _.filter(sessions, args);
   }
+
+  toggleFavoriteSession(id) {
+    const session = this.getSessionById(id);
+    session.favorite = !session.favorite;
+    return session;
+  }
+
+  addNewSession(sessionInput) {
+    sessionInput.id = 12;
+    sessions.push(sessionInput);
+    return sessionInput;
+  }
 }
 
 module.exports = SessionAPI;
