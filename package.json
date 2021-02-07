@@ -1,0 +1,28 @@
+{
+  "name": "pluralsight_BuildingGraphQLAPIwithApolloServer",
+  "version": "1.0.0",
+  "description": "Pluralsight course: Building a GraphQL API with Apollo Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kozigh01/pluralsight_BuildingGraphQLAPIwithApolloServer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kozigh01/pluralsight_BuildingGraphQLAPIwithApolloServer/issues"
+  },
+  "homepage": "https://github.com/kozigh01/pluralsight_BuildingGraphQLAPIwithApolloServer#readme",
+  "dependencies": {
+    "apollo-datasource": "^0.7.0",
+    "apollo-server": "^2.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
