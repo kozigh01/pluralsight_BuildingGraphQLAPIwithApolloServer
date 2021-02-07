@@ -26,7 +26,6 @@ router.patch('/:id', function(req, res, next){
     const key = item[0];
     const value = item[1];
     req.speaker[key] = value;
-    console.log(req.speaker);
   });
   
   res.json(req.speaker);

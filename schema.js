@@ -1,4 +1,4 @@
-const {gql} = require('apollo-server');
+const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Query {
@@ -13,7 +13,9 @@ const typeDefs = gql`
       day: String,
       format: String,
       level: String      
-    ): [Session]
+    ): [Session],
+    speakers: [Speaker],
+    speakerById(id: ID!): Speaker
   }
   type Session {
     id: ID!,
@@ -26,6 +28,13 @@ const typeDefs = gql`
     format: String,
     track: String @deprecated(reason: "need to stop using this..."),
     level: String
+    speakers: [Speaker]
+  }
+  type Speaker {
+    id: ID!
+    bio: String
+    name: String
+    sessions: [Session]
   }
 `;
 
