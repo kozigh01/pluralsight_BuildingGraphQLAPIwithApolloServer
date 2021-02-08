@@ -12,10 +12,16 @@ const dataSources = () => ({
 
 const server = new ApolloServer({
   typeDefs, 
-  resolvers, 
+  resolvers,
   dataSources,
   // introspection: false,
   // playground: false
+  debug: true, // set to false to prevent stack trace on error
+  formatError: (err) => {
+    if(err.extensions.code == 'INTERNAL_SERVER_ERROR') {
+      return new ApolloError("We are experiencing some trouble", "ERROR", {token: "uniquetoken"});
+    }
+  },
 });
 
 server
